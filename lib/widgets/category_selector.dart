@@ -12,9 +12,10 @@ class _CategorySelectorState extends State<CategorySelector> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 90.0,
+      height: 50.0,
       color: Theme.of(context).primaryColor,
       child: ListView.builder(
+        physics: BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
         itemCount: categories.length,
         itemBuilder: (BuildContext context, int index) {
@@ -27,13 +28,14 @@ class _CategorySelectorState extends State<CategorySelector> {
             child: Padding(
               padding: EdgeInsets.symmetric(
                 horizontal: 20.0,
-                vertical: 30.0,
+                vertical: 5.0,
               ),
               child: Text(
                 categories[index],
                 style: TextStyle(
                   color: index == selectedIndex ? Colors.white : Colors.white60,
-                  fontSize: 24.0,
+                  fontSize: 17.0,
+                  fontFamily: 'poppins-regular',
                   fontWeight: FontWeight.bold,
                   letterSpacing: 1.2,
                 ),

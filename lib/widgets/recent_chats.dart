@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_ui/models/message_model.dart';
 import 'package:flutter_chat_ui/screens/chat_screen.dart';
@@ -20,16 +21,15 @@ class RecentChats extends StatelessWidget {
             topRight: Radius.circular(30.0),
           ),
           child: ListView.builder(
+            physics: BouncingScrollPhysics(),
             itemCount: chats.length,
             itemBuilder: (BuildContext context, int index) {
               final Message chat = chats[index];
               return GestureDetector(
-                onTap: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => ChatScreen(
-                      user: chat.sender,
-                    ),
+                onTap: () => Navigator.of(context, rootNavigator: true).push(
+                  CupertinoPageRoute<bool>(
+                    fullscreenDialog: true,
+                    builder: (BuildContext context) => ChatScreen(user: chat.sender),
                   ),
                 ),
                 child: Container(
@@ -37,7 +37,7 @@ class RecentChats extends StatelessWidget {
                   padding:
                       EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
                   decoration: BoxDecoration(
-                    color: chat.unread ? Color(0xFFFFEFEE) : Colors.white,
+                    color:  Colors.white,
                     borderRadius: BorderRadius.only(
                       topRight: Radius.circular(20.0),
                       bottomRight: Radius.circular(20.0),

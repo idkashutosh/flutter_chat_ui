@@ -34,6 +34,21 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
+  fonts:
+      - family: poppins-extra-light
+        fonts:
+          - asset: fonts/poppins/Poppins-ExtraLight.ttf
+      - family: poppins-light
+        fonts:
+          - asset: fonts/poppins/Poppins-Light.ttf
+      - family: poppins-regular
+        fonts:
+          - asset: fonts/poppins/Poppins-Regular.ttf
+      - family: Cocon
+        fonts:
+          - asset: fonts/cocon/cocon.ttf
+
+
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
